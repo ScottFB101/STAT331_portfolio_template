@@ -1,0 +1,85 @@
+---
+title: "Preview Activity Reshaping Data"
+author: "Scott Brydon"
+format: html
+editor: visual
+execute:
+  echo: false
+---
+
+#### Reading in Cereal Data
+
+```{r}
+library(tidyverse)
+library(here)
+cereal <- read_csv(here("Week 4", "Preview Activity", "cereal.csv"))
+```
+
+#### Creating Cereals_long
+
+```{r}
+cereals_long <- cereal |> 
+  pivot_longer( c('protein', 'fat', 'fiber'), 
+               names_to = "Nutrient", 
+               values_to = "Amount"
+               ) |> 
+  select("name", "Nutrient", "Amount")
+```
+
+```{r}
+cereal |> 
+  group_by(mfr, shelf) |> 
+  summarize(mean_sugar = mean(sugars)) |> 
+  pivot_wider(names_from = shelf,
+              values_from = mean_sugar,
+              names_prefix = "Shelf")
+```
+
+#### Practice with Joins
+
+```{r}
+prof_info <- data.frame(
+  professor = 
+    c("Bodwin", "Glanz", "Carlton", "Sun", "Theobold"),
+  undergrad_school = 
+    c("Harvard", "Cal Poly", "Berkeley", "Harvard", "Colorado Mesa University"),
+  grad_school = 
+    c("UNC", "Boston University", "UCLA", "Stanford", "Montana State University")
+)
+
+prof_course <- data.frame(
+  professor = c("Bodwin", "Glanz", "Carlton", "Theobold"),
+  Stat_331 = c(TRUE, TRUE, TRUE, TRUE),
+  Stat_330 = c(FALSE, TRUE, TRUE, FALSE),
+  Stat_431 = c(TRUE, TRUE, FALSE, TRUE)
+)
+
+course_info <- data.frame(
+  course = c("Stat_331", "Stat_330", "Stat_431"),
+  num_sections = c(8, 3, 1)
+)
+```
+
+```{r}
+#a.
+prof_info |> 
+  inner_join(prof_course, by = "professor")
+```
+
+```{r}
+#b. 
+prof_info |> 
+  full_join(prof_course, by = "professor")
+```
+
+```{r}
+#c.
+prof_course_longer <- prof_course |> 
+  pivot_longer(c('Stat_331', 'Stat_330', 'Stat_431'),
+               names_to = "course",
+               values_to = "can_teach"
+               )
+
+prof_course_longer |> 
+  inner_join(course_info, by = "course")
+```

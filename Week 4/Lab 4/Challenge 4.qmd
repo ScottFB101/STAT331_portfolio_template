@@ -1,0 +1,72 @@
+---
+title: "Challenge 4"
+author: "Scott Brydon"
+format: 
+  html: 
+    theme:
+      dark: darkly
+    code-fold: true
+    code-block-bg: '#063970'
+editor: visual
+execute:
+  echo: true
+---
+
+#### Loading California and Avocado Data
+
+-   The data, which represents "Median sales price of existing single family homes in California in March 2021 and March 2022, by county" was pulled from https://www.statista.com/statistics/1268547/sales-price-of-existing-single-family-homes-in-california/.
+
+```{r message = FALSE}
+library(tidyverse)
+library(here)
+library(readxl)
+avocados <- read_csv(here("Week 4", "Lab 4", "avocado.csv"))
+cali_housing <- read_xlsx(here("Week 4", "Lab 4", "California Housing Prices.xlsx"),
+                          sheet = "Data",
+                          skip = 4) |> 
+  rename("region" = "...1",
+         "March2021" = "Mar '21",
+         "March2022" = "Mar '22")
+  
+#California regions
+california_regions <- tibble(CaliforniaRegions = c("San Francisco", "San Diego", "Los Angeles",
+                             "Sacramento"))
+
+region_prices_cali <- cali_housing |> 
+  semi_join(california_regions, by = c("region" = "CaliforniaRegions"))
+
+#Removing spaces to match Avocado dataset format
+region_prices_cali$region[region_prices_cali$region == "San Francisco"] <- "SanFrancisco"
+region_prices_cali$region[region_prices_cali$region == "San Diego"] <- "SanDiego"
+region_prices_cali$region[region_prices_cali$region == "Los Angeles"] <- "LosAngeles"
+
+```
+
+```{r}
+#Merging with Avocados
+housing_avocados_cali <- avocados |> 
+  inner_join(region_prices_cali, by = "region") |> 
+  select(AveragePrice, `Total Volume`, region, March2022) |> 
+  mutate(March2022 = as.factor(March2022))
+```
+
+```{r}
+#Finding Correlations
+housing_avocados_cali |> 
+  group_by(region, March2022) |> 
+  ggplot(mapping = aes(x = March2022, y = AveragePrice, fill = region)) +
+  geom_boxplot() +
+  labs(x = "Median Housing Prices for each Region", y = "Average Avocado Price")
+
+housing_avocados_cali |> 
+  group_by(region, March2022) |> 
+  ggplot(mapping = aes(x = March2022, y = `Total Volume`, fill = region)) +
+  geom_bar(stat = "identity") +
+  labs(x = "Median Housing Prices for each Region", y = "Total Avocados Purhcased")
+```
+
+There looks to be an increasing trend in the average price of avocados as the median housing price increases, but Sacramento does not coincide with this trend. If we neglect to look at Sacramento's data, it's evident in the box plot that there is some significant positive correlation between median housing and average avocado price.
+
+When it comes to total avocado sales volume by region, Los Angeles consumes almost five times as many avocados as San Francisco, which has the second highest total avocado sales volume. But Los Angeles has an extremely high population, so it's best to just look at the first plot.
+
+Using our first graph to address the claim "Millennials can\'t afford houses, because they spend all their money buying avocado toast", brings us to the conclusion that as Millennials move to more expensive areas, average avocado prices will likely be higher. Therefore, they should reduce avocado toast consumption to help save some extra cash to afford their more expensive home. But average avocado price doesn't vary much relative to the drastic differences in median housing prices, so Millennials have much more to worry about when saving money than their obsession with avocado toast. In conclusion, Millennials aren't able to afford homes due to avocado toast consumption, but rather the insanely high median housing prices in California.
