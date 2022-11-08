@@ -19,7 +19,7 @@ editor: visual
 
 library(tidyverse)
 library(here)
-avocados <- read_csv(here("Week 4", "Lab 4", "avocado.csv"))
+avocados <- read_csv(here("supporting_artifacts", "Lab 4", "avocado.csv"))
 ```
 
 1\.
