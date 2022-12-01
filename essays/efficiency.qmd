@@ -3,3 +3,19 @@ title: "The Power of Efficiency"
 format: html
 editor: visual
 ---
+
+-   Efficiency
+
+    -   Amount of code to complete a task
+
+    -   elimination of repetition
+
+    -   Resistance to change
+
+    -   Using Newer Functions
+
+-   Definition: The definition of efficiency is the ability to do or produce something while minimizing the amount of wasted resources or effort.
+
+-   Efficiency in Stat Computing/ Data S: In the field of statistical computing and data science, efficiency is the reduction of repetition and the use of concise yet effective code to produce valuable insights without wasting time and effort.
+
+-   Efficiency allows you to eliminate the redundant and time-consuming processes involved in these two fields, and better allocate your time on
