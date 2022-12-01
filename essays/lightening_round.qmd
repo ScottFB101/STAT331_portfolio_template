@@ -3,3 +3,13 @@ title: "Lightening Round Essays"
 format: html
 editor: visual
 ---
+
+-   If John Doe doesn't earn an A, then nobody should, because John Doe showed proficiency in the majority of learning targets, revised their labs or challenges whenever given the opportunity, completed the majority of their challenges, gave valuable feedback in their peer reviews and on github.
+
+-   The most difficult part of the class for me was Iteration during week 8. It's really hard for me to think clearly about how the process of iteration starts to work when we added more complicated looping into the equation. I really rely on being able to visualize what code is trying to do when I begin to write it, so the iteration problems took me a long time to grasp. Additionally, having to vectorize arguments added another layer of confusion.
+
+-   The easiest part of the class for me was Reshaping and Joining Data during week 4. I had been practicing my SQL coding during the summer, and had gotten accustomed to joining data sets based on certain ids etc. Therefore, the joins in this section weren't new to me, so I only has to work on getting the syntax of the code right rather than learn what was the joins were trying to achieve.
+
+-   The part of the class that interested me the most was the use of functions in week 7. After learning the basics of what functions could accomplish, I started to realize the huge amount of power they can have when analyzing data in R and in any other programming languages that allows them. Being able to run an extremely complicated set of processes on data by simply plugging in a vector, data frame, or whatever argument your function allows is an amazing way to stay efficient.
+
+-   I would suggest to a student just beginning in Stat 331 to try and stay up to date with the suggested due dates. Even though there's flexibility with labs and challenges, coding builds upon itself and not getting a full grasp of a prior topic can make it a lot harder to understand the new material in the coming week. Scrambling to learn past code while trying to complete a current assignment is a nightmare.
