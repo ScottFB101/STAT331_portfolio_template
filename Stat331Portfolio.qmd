@@ -53,7 +53,7 @@ I believe my current grade is an A-. I've submitted full attempts/solutions for 
 10. **R-3 Robust Programs Resistant to Changes in Inputs**
     1.  (Lab 7 Part 2 Task1/2/3, Lab 4 Question 4, Challenge 3 Letter B)
 11. **DVS-1 Visualizations for a Variety of Data Types**
-    1.  (Lab 4 Question 7, Lab 5 Time Series Plots #2, Lab 7 Task 4)
+    1.  (Lab 4 Question 7, Lab 5 Time Series Plots #2, Lab 7 Task 4, Challenge 7 Part 3)
 12. **DVS-2 Plot Modifications for Clear Visualizations**
     1.  (Lab 4 Question 7, Challenge 7 Part 3) Maybe More...
 13. **DVS-3 Creativity in Visualizations**
@@ -73,7 +73,7 @@ I believe my current grade is an A-. I've submitted full attempts/solutions for 
 20. **PE-3 Iteration to Reduce Repetition**
     1.  (Lab 8 Step Four)
 21. **PE-4 Modern Tools for Analysis**
-    1.  ()
+    1.  (Lab 7 Task 5/6, Lab 8 Step Four, Lab 4 Exercise Question 4)
 22. **DSM-1 Simulating Data for a Variety of Probability Models**
     1.  (Practice Activity 9 Instruments: Catching a Con)
 23. **DSM-2 Linear Regression and Extraction of Summary Measures**
