@@ -4,18 +4,4 @@ format: html
 editor: visual
 ---
 
--   Efficiency
-
-    -   Amount of code to complete a task
-
-    -   elimination of repetition
-
-    -   Resistance to change
-
-    -   Using Newer Functions
-
--   Definition: The definition of efficiency is the ability to do or produce something while minimizing the amount of wasted resources or effort.
-
--   Efficiency in Stat Computing/ Data S: In the field of statistical computing and data science, efficiency is the reduction of repetition and the use of concise yet effective code to produce valuable insights without wasting time and effort.
-
--   Efficiency allows you to eliminate the redundant and time-consuming processes involved in these two fields, and better allocate your time on
+-   The actual definition of efficiency is the ability to do or produce something while minimizing the amount of wasted resources or effort. But In relation to statistical computing and data science, I think efficiency means minimizing the amount of time/code used to complete a task, eliminating the repetition of code, creating code that is resistant to change in inputs, and using newer functions to complete a task in the easiest manner. Combining all these efficient processes allows you to eliminate the redundant and time-consuming processes involved in these two fields, and better allocate your time generating analytics that help forward your goals. The whole goal of data science is to provide vaulable insights to make better decisions, and since efficiency allows you to do that faster, it's extremely important. I encountered efficiency for the first time when I was introduced to the across function in Lab 7 Task 1. Previously, I'd been duplicating code and changing arguments to apply functions to multiple columns or rows. Intuitively, it seemed like there had to be a more concise way to apply those functions, so the introduction of the across function validated my suspicions and brought about my first "a-ha" moment. My second "a-ha" moment came towards the end of the quarter when we encountered functions Lab 8 Step Four. I'd had some previous experience with those concepts, but had never applied them in a manner that was substantially more efficient than just repeating some code. The previous experience had been teachers wanting to expose students to the idea of those concepts: Not show us the full capabilities of them. Once I was able to run the pluralize, phrase, and sing day functions all at once in step four, I realized the power functions could have to reduce the amount of time spent on manipulating data. If ones able to write a function that's resistant to changes in input, they can apply complex processes to data with one line of code. The power of functions is exponential in statistical computing and data science.
