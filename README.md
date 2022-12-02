@@ -40,18 +40,18 @@ Challenge 3
 
 #### Revising My Thinking
 
-Lab 7 (put her original feedback)
+Lab 7
 
-Lab 2 (put her original feedback)
+Lab 2
 
 #### Extending My Thinking
 
-Challenge 9 (did the most)
+Challenge 9
 
-Challenge 8 (did the most)
+Challenge 8
 
-Challenge 4 (finding data set, own interpretation and direction)
+Challenge 4
 
-Challenge 2 (did the most)
+Challenge 2
 
 #### Demonstration of Peer Support

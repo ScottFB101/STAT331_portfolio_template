@@ -5,61 +5,30 @@ format: pdf
 editor: visual
 ---
 
-In this document, you make a data-based argument for the grade you've earned in this course. Your argument should include evidence from the supporting artifacts you've provided.
+I believe I've earned an A in this course because I've demonstrated adequate fulfillment of the five course objectives. First and foremost, I believe I was able to demonstrate proficiency in all of the learning targets established in the class. The following list contains what supporting artifacts correspond to my mastery of each learning target:
 
-## The output document should be a PDF or a Word Document, as it should be a **maximum** of 2-pages.
+1.  WD-1 Importing Data - (Challenge 3 Loading California and Avocado Data, Preview Activity 2 Step 2)
+2.  WD-2 Selecting Necessary Columns - (Challenge 3 Letter B)
+3.  WD-3 Filtering Rows - (Lab 3 Study Subjects, Practice Activity 5 Question 1, Lab 3 Familiar Words)
+4.  WD-4 Modifying and Creating Variables - (Lab 3 Question 4/6, Lab 4 Question 6, Practice Activity 5 Adjusting Time Zone)
+5.  WD-5 Mutating Joins - (Preview Activity 4 A/B)
+6.  WD-6 Filtering Joins - (Lab 4 Question 7)
+7.  WD-7 Pivoting Data Frames - (Lab 4 Question 6/7)
+8.  R-1 Professional Looking Analysis - (Lab 3)
+9.  R-2 Well Documented and Tidy Code - (Lab 3 Familiar Words, Lab 4 Question 5)
+10. R-3 Resistant to Changes - (Lab 7 Part 2 Task1/2/3, Lab 4 Question 4, Challenge 3 Letter B)
+11. DVS-1 Visualizations for a Variety of Data Types - (Lab 4 Question 7, Lab 5 Time Series Plots #2, Lab 7 Task 4, Challenge 7 Part 3)
+12. DVS-2 Plot Modifications for Clear Visuals - (Lab 4 Question 7, Challenge 7 Part 3)
+13. DVS-3 Creative Visuals - (Lab 5 Time Series Plots Question 2, Challenge 7 Part 3, Challenge 4 Letter C)
+14. DVS-4 Calculating Numerical Summaries - (Lab 3 Familiar Words)
+15. DVS-5 Summaries of Variables Across Groups - (Challenge 3 Letter B)
+16. DVS-6 Tables with Clear Summaries - (Challenge 9 Part 2 Question 1 and 2, Lab 4 Exercises 3/4)
+17. DVS-7 Creativity in Tables - (Challenge 9 Part 2 Question 1 and 2)
+18. PE-1 Concise Code - (Lab 4 Reshaping Question 6, Challenge 3 Letter B, Lab 5 Time Series Plots #2)
+19. PE-2 Functions to Reduce Repetition - (Lab 8 Phrase Function/Sing Day Function)
+20. PE-3 Iteration to Reduce Repetition - (Lab 8 Step Four)
+21. PE-4 Modern Tools - (Lab 7 Task 5/6, Lab 8 Step Four, Lab 4 Exercise Question 4)
+22. DSM-1 Simulating Data for Probability Models - (Practice Activity 9 Instruments: Catching a Con)
+23. DSM-2 Regression / Summary Measures - (Lab 9 Modelling the Number of Allison's Question 4 and 5)
 
-## Week 6 Reflection (Edit down/use as reference)
-
-Now that we've passed the halfway point for the class, I feel that I've become exponentially more prepared to work in a data scientist or analyst position post-college. Therefore, I feel like my goals are being accomplished. I feel more prepared primarily because of our recent use of complicated data visualizations and summarization throughout these last few weeks. For example, I feel that I've gained proficiency in all the Data Visualization & Summarization learning targets except for DVS-3. In Challenge 3, I was able to show my ability to summarize variables across multiple groups when finding the highest difference in music genre familiarity across white and non-white groups, which satisfies DVS-5. In Lab 4 Question 7, I was able to successfully replicate the graph showing the proportion of avocados by size sold in each California region. This graph required a visualization of factor, numerical, and categorical variables to provide enough visual information. Secondly, the x-axis labels were difficult to read, which required the use of a dodge to stagger the labels. Lastly, the proportion of avocados sold by size had to be calculated using mutate, mean, and simple division. After completing the question and submitting revisions, I was able to show proficiency in DVS-1, DVS-2, and DVS-4. In my Week 3 Reflection, I wasn't familiar with the Working with Data learning target WD-5, and the Reproducibility learning target R-3. I feel confident in my proficiency for WD-5, which I practiced heavily throughout Week 4 with the use of semi join and anti-join. I even showed use of it in Lab 4 Question 7. As for R-3, the summarize and select functions used in Challenge 3 Letter B show programs that are resistant to change in inputs due to the use of column names rather than indexing by numerical position. I had a problem with indexing by numerical position when writing my Week 3 Reflection, so I'm happy I'm able to show proficiency in that learning target now.
-
-I've demonstrated a commitment to continued learning by completing every Challenge problem and making corrections to each Challenge I've received feedback for. Throughout my solving of these problems, I used stack overflow frequently, which has helped my Program Efficiency. My proficiency in learning target PE-4 has drastically increased because I'm able to see the most efficient ways other people have been able to utilize different functions in the tidy verse. I've grown as a team member and a leader as the labs have gotten continually harder because our group has had to communicate more than in Weeks 1-3 to be able to complete the labs and challenge assignments. I've started to utilize discord more and have even posted a few questions which I believe other students benefited from as well. By doing so, I feel I'm helping turn discord into the helpful tool it was intended to be at the start of this quarter. Unfortunately, I haven't been good about answering other people's discord questions so far, which is something I need to start actively doing. I can't expect an answer for every question I have if I'm not helping provide other students with answers as well.
-
-I believe my current grade is an A-. I've submitted full attempts/solutions for every assignment, completed almost all assignments on time, and have demonstrated proficiency in the vast majority of learning targets. I've revised my code for every lab or challenge I've received feedback on and have shown an increase in quality of assignments as I continue to make revisions. I've been a helpful group member in and out of class, and I ask questions when needed in class or on discord but have been sub par about answering other student's questions on discord. Lastly, I believe I've given peer reviews that give constructive criticism and enable my peers to make positive changes to their code. But I also believe I could've given better feedback in my earlier peer reviews now that I'm not as naive to R.
-
-1.  **WD-1 Importing Data**
-    1.  (Challenge 3 Loading California and Avocado Data, Preview Activity 2 Step 2)
-2.  **WD-2 Selecting Necessary Columns**
-    1.  (Challenge 3 Letter B)
-3.  **WD-3 Filtering Rows by Variety of Data Types**
-    1.  (Lab 3 Study Subjects, Practice Activity 5 Question 1, Lab 3 Familiar Words)
-4.  **WD-4 Modifying Existing Variables and Creating New Variables**
-    1.  (Lab 3 Question 4/6, Lab 4 Question 6, Practice Activity 5 Adjusting Time Zone)
-5.  **WD-5 Mutating Joins**
-    1.  (Preview Activity 4 A/B)
-6.  **WD-6 Filtering Joins**
-    1.  (Lab 4 Question 7)
-7.  **WD-7 Pivoting Data Frames**
-    1.  (Lab 4 Question 6/7)
-8.  **R-1 Professional Looking Analysis**
-    1.  (Lab 3)
-9.  **R-2 Well Documented and Tidy Code**
-    1.  (Lab 3 Familiar Words, Lab 4 Question 5)
-10. **R-3 Robust Programs Resistant to Changes in Inputs**
-    1.  (Lab 7 Part 2 Task1/2/3, Lab 4 Question 4, Challenge 3 Letter B)
-11. **DVS-1 Visualizations for a Variety of Data Types**
-    1.  (Lab 4 Question 7, Lab 5 Time Series Plots #2, Lab 7 Task 4, Challenge 7 Part 3)
-12. **DVS-2 Plot Modifications for Clear Visualizations**
-    1.  (Lab 4 Question 7, Challenge 7 Part 3) Maybe More...
-13. **DVS-3 Creativity in Visualizations**
-    1.  (Lab 5 Time Series Plots Question 2, Challenge 7 Part 3, Challenge 4 Letter C)
-14. **DVS-4 Calculating Numerical Summaries**
-    1.  (Lab 3 Familiar Words)
-15. **DVS-5 Summaries of Variables Across Groups**
-    1.  (Challenge 3 Letter B)
-16. **DVS-6 Tables with Clear Summaries**
-    1.  (Challenge 9 Part 2 Question 1 and 2, Lab 4 Exercises 3/4)
-17. **DVS-7 Creativity in Tables**
-    1.  (Challenge 9 Part 2 Question 1 and 2)
-18. **PE-1 Concise Code**
-    1.  (Lab 4 Reshaping Question 6, Challenge 3 Letter B, Lab 5 Time Series Plots #2)
-19. **PE-2 Functions to Reduce Repetition**
-    1.  (Lab 8 Phrase Function/Sing Day Function)
-20. **PE-3 Iteration to Reduce Repetition**
-    1.  (Lab 8 Step Four)
-21. **PE-4 Modern Tools for Analysis**
-    1.  (Lab 7 Task 5/6, Lab 8 Step Four, Lab 4 Exercise Question 4)
-22. **DSM-1 Simulating Data for a Variety of Probability Models**
-    1.  (Practice Activity 9 Instruments: Catching a Con)
-23. **DSM-2 Linear Regression and Extraction of Summary Measures**
-    1.  (Lab 9 Modelling the Number of Allison's Question 4 and 5)
+The majority of my challenges and labs assigned throughout this quarter were submitted on time and were always full attempts. Most of these assignments needed to be revised to answer the questions correctly and to adhere to the proper format and tidiness asked of us in class. I completed all the revisions that were asked of me, and showed improvement in my code as a result of these revisions. For example, I had to revise my solution for Lab 2 twice because I didn't understand how to properly show and explain the contents of a data set to educate the viewer. After those revisions, I was able to adequately explain the contents and survey methods of the hip hop data set in Lab 3. In Lab 7, I had issues choosing the correct plots for the visualization of the NAs and re-scaled fish length in the data, understanding the argument structure of the stopifnot function, and eliminating redundancy in my functions. After completing the revisions, I showed a better understanding of the correct visualizations for different data types in Lab 9 when visualizing summary measures of the total number of babies in the US named Allison per year. I attempted every challenge that was given throughout the quarter, and showed adequate evidence of extended learning by completing all of those challenges. In Challenge 2, I completed the spiciest challenge option, where I learned how to change the positions of annotations on graphs. In Challenge 4, I found my own data set for housing prices in California, and created my own visualizations to attempt to show a correlation between avocado sales and housing prices in California. After a failed first attempt, I was able to revise my challenge and used a better approach to display total avocados purchased per region against region and housing price. In Challenge 8, I completed the hardest option, and used an argument of the glue collapse function that wasn't used in class to properly space the lyrics to the Twelve Days of Christmas. Finally in Challenge 9, I added a series of modifications to the data table function to make the table more visually appealing. Additionally, I found a function that created search boxes that allows a user to filter data simultaneously for each column. My group in the class eventually shrunk down to just Austin and I, but we were still able to complete practice activities together and remain in touch outside of class. Because we were a two person team, we acted as duel facilitators during our practice activities and asked questions to Dr. T in tandem. I was present to every class session with the preview activity completed prior to the first class each week. Lastly, I believe I've given peer reviews that give constructive criticism and enable my peers to make positive changes to their code. For example, when reviewing a peers' Lab 7, I offered to help him with any questions he might have because I knew he'd been struggling with a few problems, and gave him some tips to help consistently format his code and use the summarize function correctly. When reviewing another peers' code in Lab 3, I couldn't find any glaring problems with the code, so I only wrote about the parts of the code I loved. I even let them know I learned something new by reviewing their code.

@@ -1,7 +1,9 @@
 ---
 title: "Preview Activity Reshaping Data"
 author: "Scott Brydon"
-format: html
+format: 
+  html:
+    self-contained: true
 editor: visual
 execute:
   echo: false
@@ -60,21 +62,21 @@ course_info <- data.frame(
 )
 ```
 
-A.
+A.  
 
 ```{r}
 prof_info |> 
   inner_join(prof_course, by = "professor")
 ```
 
-B.
+B.  
 
 ```{r}
 prof_info |> 
   full_join(prof_course, by = "professor")
 ```
 
-C.
+C.  
 
 ```{r}
 prof_course_longer <- prof_course |> 
