@@ -1,0 +1,128 @@
+---
+title: "Lab 9"
+author: "Scott Brydon"
+format: 
+  html: 
+    theme:
+      dark: darkly
+    code-fold: true
+    code-block-bg: '#063970'
+editor: visual
+---
+
+```{r}
+#| message: false
+library(tidyverse)
+library(here)
+StateNames_A <- read_csv(here("Week 9", "Lab 9", "StateNames_A.csv"))
+```
+
+#### Summarizing and Visualizing the Number of Allisons
+
+1\.
+
+```{r}
+StateNames_A <- StateNames_A |> 
+  rename("Sex at Birth" = "Gender") 
+
+StateNames_A |> 
+  pivot_wider(
+    names_from = `Sex at Birth`,
+    values_from = Count
+  ) |> 
+  filter(Name == "Allison") |> 
+  group_by(State) |> 
+  summarize(across(
+    F:M, sum)
+    ) |>  
+  mutate(
+    across(F:M, ~replace_na(., 0))
+    )
+
+```
+
+2/3.
+
+```{r}
+Sum_Allisons <- StateNames_A |> 
+  filter(`Sex at Birth` == "F",
+         Name == "Allison") |> 
+  group_by(Year) |> 
+  summarize(Total_Allison = sum(Count))
+
+Sum_Allisons |> 
+  ggplot(mapping = aes(x = Year, y = Total_Allison)) +
+  geom_col() +
+  labs(y = "", 
+       title = "Number of Females named Allison per Year in the US")
+```
+
+#### Modeling the Number of Allison's
+
+4/5.
+
+```{r}
+Allison_Reg <- Sum_Allisons %>%
+  lm(Total_Allison ~ Year, data = .)
+
+Allison_Reg |> 
+  broom::tidy()
+
+Allison_Reg |> 
+  broom::glance()
+
+Sum_Allisons |> 
+  ggplot(mapping = aes(x = Year, y = Total_Allison)) + 
+  geom_point() +
+  stat_smooth(method = "lm")
+```
+
+6.  ŷ = 3881.886 - 1.876(Year)
+7.  
+
+```{r}
+Allison_Reg |> 
+  broom::augment() |> 
+  ggplot(mapping = aes(x = .fitted, y = .resid)) +
+  geom_point()
+```
+
+The majority of the residuals look to be random around zero, which implies the model is probably a linear relationship. There does look to be a slight negative linear pattern in the residuals due to the outliers in the top left region.
+
+8\.
+
+We conclude from this model that the total number of females at birth named Allison decreases by an average of -101.52 each additional year in each individual state. The intercept is meaningless since it represents the total number of females named Allison at birth in a state in year zero.
+
+#### Spelling by State
+
+1\.
+
+```{r}
+StateNames_A |>
+  filter(`Sex at Birth` == "M", 
+         Name %in% c("Allan", "Alan", "Allen")
+         ) |> 
+  ggplot(mapping = aes(x = Year, y = Count, colour = Name)) +
+  geom_smooth() +
+  labs(title = "Popularity of different Allan name spellings over time")
+```
+
+2\.
+
+```{r}
+StateNames_A |> 
+  filter(Name %in% c("Allan", "Alan", "Allen")) |> 
+  pivot_wider(
+    names_from = Name, 
+    values_from = Count
+    ) |> 
+  filter(`Sex at Birth` == "M",
+         Year == 2000,
+         State %in% c("PA", "CA")) |> 
+  mutate(
+    across(Allan:Allen, ~replace_na(., 0)),
+    AllenPercent = round(Allen/ rowSums(across(Allen:Allan)), 2),
+    AlanPercent = round(Alan/ rowSums(across(Allen:Allan)), 2),
+    AllanPercent = round(Allan/ rowSums(across(Allen:Allan)), 2)
+    )
+```

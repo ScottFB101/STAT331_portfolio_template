@@ -1,0 +1,41 @@
+---
+title: "Challenge 2"
+author: "Scott Brydon"
+format: html
+editor: visual
+execute: 
+  echo: false
+---
+
+#### Challenge 2
+
+```{r setup}
+library(tidyverse)
+library(here)
+```
+
+```{r reading in data}
+survey = read_csv(here("Week 2", "Lab 2", "surveys.csv")
+         )
+```
+
+```{r}
+ggplot(data = survey, mapping = aes(x = weight, y = species, color = genus)) +
+  geom_boxplot(outlier.shape = NA) +
+  labs(x = "Weight (Grams)", y = "Species of Animal") +
+  annotate("text", x = 250, y = 14, label = "Onychomys") +
+  annotate("text", x = 250, y = 7, label = "Onychomys") +
+  annotate("text", x = 250, y = 13, label = "Dipodomys") +
+  annotate("text", x = 250, y = 11, label = "Dipodomys") +
+  annotate("text", x = 250, y = 10, label = "Dipodomys") +
+  annotate("text", x = 250, y = 12, label = "Chaetodipus") +
+  annotate("text", x = 250, y = 2, label = "Chaetodipus") +
+  annotate("text", x = 250, y = 8, label = "Peromyscus") +
+  annotate("text", x = 250, y = 3, label = "Peromyscus") +
+  annotate("text", x = 250, y = 9, label = "Reithrodontomys") +
+  annotate("text", x = 250, y = 5, label = "Reithrodontomys") +
+  annotate("text", x = 250, y = 6, label = "Sigmodon") +
+  annotate("text", x = 250, y = 4, label = "Pergonathus") +
+  annotate("text", x = 250, y = 1, label = "Neotoma") +
+  theme(legend.position = "none")
+```

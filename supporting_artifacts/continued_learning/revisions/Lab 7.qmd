@@ -1,0 +1,119 @@
+---
+title: "Lab 7"
+author: "Scott Brydon"
+format: 
+  html: 
+    self-contained: true
+    theme:
+      dark: darkly
+    code-fold: true
+    code-block-bg: '#063970'
+editor: visual
+---
+
+```{r}
+#| message: false
+library(tidyverse)
+library(here)
+BlackfootFish <- read_csv(here("Week 7", "Lab 7", "BlackfootFish.csv"))
+```
+
+#### Task 1
+
+```{r}
+Count_NAs <- function(data) {
+  sum(is.na(data))
+}
+
+BlackfootFish |> 
+  summarize(across(.cols = everything(),
+         .fns = Count_NAs))
+```
+
+#### Task 2
+
+```{r}
+#| message: false
+
+BlackfootFish |> 
+  group_by(year, trip, section) |> 
+  summarize(across(.cols = everything(),
+         .fns = Count_NAs)) |> 
+  ggplot(mapping = aes(x = year, y = weight, fill = section)) +
+  geom_col() +
+  coord_flip() +
+  facet_wrap(~ trip)
+  
+```
+
+## Part 2:
+
+#### Task 1/2/3
+
+```{r}
+rescale_01 <- function(vector){
+  stopifnot(is.numeric(vector), length(vector) > 1)
+  
+  min_vec <- min(vector, na.rm = TRUE)
+  max_vec <- max(vector, na.rm = TRUE)
+  vector <-  (vector - min_vec) / (max_vec - min_vec)
+  
+  return(vector)
+  
+}
+
+x <- c(1:25, NA)
+rescale_01(x)
+```
+
+#### Task 4
+
+```{r}
+#| warning: false
+#| layout-ncol: 2
+
+BlackfootFish |> 
+  ggplot(mapping = aes(
+    x = weight, 
+    y = length,
+    color = species)
+    ) +
+  geom_boxplot()
+
+BlackfootFish |> 
+  ggplot(mapping = aes(
+    x = weight, 
+    y = rescale_01(length),
+    color = species
+    )) +
+  geom_boxplot() +
+  labs(y = "Rescaled Length")
+```
+
+#### Task 5/6
+
+```{r}
+rescale_column <- function(data, vectors) {
+  stopifnot(is.data.frame(data))
+  
+  data %>%
+    mutate( 
+      across(
+      .cols = {{ vectors }}, 
+      .fns = rescale_01
+      )
+    )
+}
+
+rescale_column(BlackfootFish, length:weight)
+```
+
+**Lab 7 Revisions**
+
+**Task 2:** When I had originally formatted the ggplot for the number of NAs in the weight column, I was struggling with the correct plot to use because I had been considering the year as a purely numerical variable in this case, and there tried using geom_line and geom_point. Once I realized that year was acting more as a categorical variable because there would never be any value at a fraction of a year, I reverted to using a bar plot. Once I got to this point, I tried switching the year to the y-axis in the aesthetics argument, but it didn't produce the horizontal bar graph desired. I assumed this was the best that could be done using ggplot because I hadn't remembered the usefulness of the coord_flip function. Until you hinted at the possibility of years being on the y-axis in my corrections, I never would have realized I could have flipped it.
+
+**Task 1/2/3:** For the stopifnot function, I didn't understand the argument structure for the function. I assumed it was a function that reduced the need to write convoluted if statement. Therefore, I figured it would follow the same logical operator structure and require an or symbol between the arguments being tested.
+
+The redundancy in the rescale function was a result of me assuming that since the minimum function is already defined, that I couldn't replace it with a simpler argument. I had been using the thought process of developing functions to minimize redundancy and knew I couldn't make another minimize function. This now seems obvious, but I hadn't thought at the time to just define the minimum and maximum as objects precalculated in the function. This happens a lot to me in this class, where I'll get so homed in on a specific learning target or way of doing things that I'll overcomplicated my thinking.
+
+**Task 4:** Whenever I think of the simplest type of graph, I gravitate towards the scatterplot. This can be counterintuitive because often the purpose of the visual and the interpretation don't require a scatterplot. That happens to be the case here, where a scatterplot makes the data almost overlap and extremely hard to interpret. If there were slight changes to the data when I rescaled it, it would've been hard to see small movements in the points too. I decided to change to a boxplot because you commented we only want to see the distributions of weight, which would be shown by the quantiles of a boxplot. In general, I need to become better at answering the question in a straightforward manner.

@@ -1,0 +1,89 @@
+---
+title: "Challenge 9"
+author: "Scott Brydon"
+format: 
+  html: 
+    theme:
+      dark: darkly
+    code-fold: true
+    code-block-bg: '#063970'
+editor: visual
+---
+
+```{r}
+#| message: false
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+library(DT)
+library(here)
+StateNames_A <- read_csv(here("Week 9", "Lab 9", "StateNames_A.csv"))
+
+StateNames_A <- StateNames_A |> 
+  rename("Sex at Birth" = "Gender") 
+```
+
+#### Part 1
+
+```{r}
+Count_Per_State <- StateNames_A |> 
+  pivot_wider(
+    names_from = `Sex at Birth`,
+    values_from = Count
+  ) |> 
+  filter(Name == "Allison") |> 
+  group_by(State) |> 
+  summarize(across(
+    F:M, sum)
+    ) |>  
+  mutate(
+    across(F:M, ~replace_na(., 0))
+    )
+
+kable(Count_Per_State, col.names = c("State", "Female", "Male"), format = "html")
+```
+
+```{r}
+Percentages_Per_Name <- StateNames_A |> 
+  filter(Name %in% c("Allan", "Alan", "Allen")) |> 
+  pivot_wider(
+    names_from = Name, 
+    values_from = Count
+    ) |> 
+  filter(`Sex at Birth` == "M",
+         Year == 2000,
+         State %in% c("PA", "CA")) |> 
+  mutate(
+    across(Allan:Allen, ~replace_na(., 0)),
+    AllenPercent = round(Allen/ rowSums(across(Allen:Allan)), 2),
+    AlanPercent = round(Alan/ rowSums(across(Allen:Allan)), 2),
+    AllanPercent = round(Allan/ rowSums(across(Allen:Allan)), 2)
+    ) 
+
+kable(Percentages_Per_Name, format = "html")
+```
+
+#### Part 2
+
+1\.
+
+```{r}
+kable(Count_Per_State, col.names = c("State", "Female", "Male"), format = "html") |> 
+  kable_styling(font_size = 10) |> 
+  column_spec(3, strikeout = TRUE) |> 
+  add_header_above(c(" " = 2, "Number of kids named Allison" = 1))
+```
+
+2\.
+
+```{r}
+datatable(head(StateNames_A, 100), class = 'cell-border stripe', 
+          caption = htmltools::tags$caption(
+            style = 'caption-side: bottom; text-align: center;',
+            'Table 1: ', 
+            htmltools::em(
+              'Information on the Number of Kids Born with a Name beginning with A')
+            ),
+          filter = 'top'
+  )
+```

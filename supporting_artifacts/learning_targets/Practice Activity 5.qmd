@@ -1,0 +1,56 @@
+---
+title: "Practice Activity 5"
+author: "Scott Brydon"
+format: 
+  html: 
+    theme:
+      dark: darkly
+    code-fold: true
+    code-block-bg: '#063970'
+editor: visual
+execute:
+  echo: true
+---
+
+#### Adjusting Time Zone
+
+```{r message = FALSE}
+library(tidyverse)
+library(lubridate)
+library(here)
+zodiac <- read_csv(here("Week 5", "Practice Activity", "suspect_times.csv"))
+
+zodiac <- zodiac |> 
+  mutate(
+    Adjusted_Time = force_tz(Time.Spotted, tzone = "America/Los_Angeles")
+  )
+```
+
+1\.
+
+```{r}
+#1
+Thanksgiving <- force_tz(ymd(20181122), tzone = "America/Los_Angeles")
+
+Jan_1_1970 <- force_tz(
+  ymd_hms("1970-01-01 00:00:00"), tzone = "America/Los_Angeles"
+  )
+
+zodiac |> 
+  filter(pm(Adjusted_Time) == TRUE,
+         #2
+         !wday(Adjusted_Time) %in% c(3, 5),
+         #3
+         Adjusted_Time <= (Thanksgiving + days(35)),
+         Adjusted_Time >= (Thanksgiving - days(35)),
+         #4
+         pm(with_tz(Adjusted_Time, tzone = "GMT")) == TRUE,
+         #5
+         mday(Adjusted_Time) %in% c(22, 23),
+         #6
+         (as.integer(
+           difftime(Adjusted_Time, Jan_1_1970, unit = "mins")
+           ) %% 10) == 0
+         
+  )
+```

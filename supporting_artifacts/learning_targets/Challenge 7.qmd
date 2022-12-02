@@ -1,0 +1,72 @@
+---
+title: "Challenge 7"
+author: "Scott Brydon"
+format: 
+  html: 
+    theme:
+      dark: darkly
+    code-fold: true
+    code-block-bg: '#063970'
+editor: visual
+---
+
+```{r}
+#| message: false
+library(tidyverse)
+library(here)
+BlackfootFish = read_csv(here("Week 7", "Lab 7", "BlackfootFish.csv"))
+```
+
+#### Part 1
+
+```{r}
+na_outside <- function(measurement, min, max) {
+  stopifnot(is.numeric(measurement))
+  
+  case_when(
+    {{ measurement }} < min ~ NA_real_,
+    {{ measurement }} > max ~ NA_real_,
+    TRUE ~ {{ measurement }}
+  )
+}
+
+BlackfootFish <- BlackfootFish |> 
+  mutate(length = na_outside(length, 150, 762),
+         weight = na_outside(weight, 60, 4000))
+```
+
+#### Part 2
+
+```{r}
+condition_index <- function(data, weight_val, length_val) {
+  stopifnot(is.data.frame(data))
+  
+  data |> 
+    mutate(
+      'Condition Index' = (({{ weight_val }} / {{ length_val }} ** 3) * 100)
+      )
+}
+```
+
+#### Part 3
+
+```{r}
+#| warning: false
+#| message: false
+
+BlackfootFish_Index <- BlackfootFish |> 
+  condition_index(length, weight)
+
+BlackfootFish_Index |> 
+  mutate(
+    trip = ifelse(trip == 1, "Trip 1", "Trip 2")
+    ) |> 
+  group_by(year, species, trip) |> 
+  ggplot(mapping = aes(
+    x = year, 
+    y = `Condition Index`)
+    ) +
+  geom_smooth() +
+  facet_grid(trip ~ species) +
+  labs(title = "Fish Conditions from 1989 to 2006 on Blackfoot River")
+```

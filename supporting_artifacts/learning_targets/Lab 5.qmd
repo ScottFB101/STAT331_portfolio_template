@@ -1,0 +1,82 @@
+---
+title: "Lab 5"
+author: "Scott Brydon"
+format: 
+  html: 
+    theme:
+      dark: darkly
+    code-fold: true
+    code-block-bg: '#063970'
+editor: visual
+---
+
+```{r}
+#| message = FALSE
+library(tidyverse)
+library(here)
+survey = read_csv(here("Week 2", "Lab 2", "surveys.csv"))
+```
+
+## Revisiting Lab 2
+
+```{r}
+#1/2
+ggplot(data = survey, mapping = aes(x = weight, y = fct_reorder(species, weight))) +
+  geom_jitter(color = "tomato", alpha = 0.05) +
+  geom_boxplot(outlier.shape = NA) +
+  labs(y = "", x = "", title = "Distribution of Weight(gm) by Species")
+```
+
+## Time Series Plots
+
+1\.
+
+```{r}
+survey |> 
+  ggplot(mapping = aes(x = year, y = weight, color = species)) +
+  geom_line()
+```
+
+2\.
+
+```{r}
+options(dplyr.summarise.inform = FALSE)
+
+survey |> 
+  group_by(species, year) |> 
+  summarize("Mean Weight" = mean(weight)) |> 
+  ggplot(mapping = aes(
+    x = year, 
+    y = `Mean Weight`, 
+    #3
+    color = fct_reorder2(species, year, `Mean Weight`))) +
+  geom_line() +
+  #4
+  labs(color = "Species", title = "Mean Weight each year for each Genus", y = "")
+```
+
+## Captures over the Week
+
+```{r}
+#1/2
+survey <- survey |> 
+  mutate(day_of_week = as.factor(day_of_week))
+
+survey |> 
+  ggplot(mapping = aes(
+    x = fct_relevel(day_of_week, "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"))) +
+  geom_bar() +
+  labs(x = "Rodents captured each day of the Week", y = "")
+```
+
+```{r}
+#3
+survey |> 
+  mutate(day_of_week = fct_collapse(day_of_week, 
+    Weekday = c("Mon", "Tue", "Wed", "Thu", "Fri"),
+    Weekend = c("Sat", "Sun"))) |> 
+  ggplot(mapping = aes(x = day_of_week)) +
+  geom_bar() +
+  labs(x = "Rodents captured on Weekdays vs Weekends", y = "")
+
+```

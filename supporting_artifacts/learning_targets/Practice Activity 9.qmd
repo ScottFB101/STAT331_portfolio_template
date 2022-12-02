@@ -1,0 +1,74 @@
+---
+title: "Practice Activity 9"
+author: "Scott Brydon"
+format: html
+editor: visual
+---
+
+#### Duck Diet
+
+```{r}
+#| message: false
+library(tidyverse)
+library(here)
+
+Duck_diet <- read_csv(here("Week 9", "Practice Activity", "mystery_animal.csv"))
+```
+
+```{r}
+Duck_reg <- Duck_diet %>%
+  lm(weight_after ~ weight_before, data = .)
+```
+
+```{r}
+Duck_reg |> 
+  broom::augment() |> 
+  ggplot(mapping = aes(x = weight_before, y = .resid)) + 
+  geom_point()
+```
+
+#### Instruments
+
+Warm-up:
+
+```{r}
+#What is the 95th percentile for trumpet weight?
+qunif(0.95, min = 1.5, max = 3.5)
+
+#What is the 10th percentile for trombone weight?
+qnorm(0.1, mean = 4.6, sd = 0.8)
+
+#About what percent of trombones do you expect to be more than 5 pounds?
+pnorm(5, mean = 2.5, sd = 1)
+
+#About what percent of reed instruments do you expect to be more than 5 pounds?
+pchisq(5, df = 4)
+
+#Simulate 100 random trombone weights. How many of them were below 4 pounds?
+x <- rnorm(100, mean = 4.6, sd = 0.8)
+sum(x < 4)
+```
+
+Catching a Con
+
+```{r}
+music_man <- function(n_tromb, n_cor, n_reed){
+  
+  trombones <- rnorm(n_tromb, mean = 4.6, sd = 0.8)
+  cornets <- runif(n_cor, min = 1.5, max = 3.5)
+  reeds <- rchisq(n_reed, 4)
+  
+  total_weight <- sum(trombones, cornets, reeds)
+  return(total_weight)
+  
+}
+
+set.seed(1957)
+
+my_weights <- rerun(.n = 1000, 
+                    music_man(n_tromb = 76, n_cor = 110, n_reed = 1035)
+                    ) |> 
+  flatten_dbl()
+
+sum(my_weights < 4532)
+```
