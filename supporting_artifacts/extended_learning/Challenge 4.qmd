@@ -3,6 +3,7 @@ title: "Challenge 4"
 author: "Scott Brydon"
 format: 
   html: 
+    self-contained: true
     theme:
       dark: darkly
     code-fold: true
@@ -16,14 +17,14 @@ execute:
 
 -   The data, which represents "Median sales price of existing single family homes in California in March 2021 and March 2022, by county" was pulled from https://www.statista.com/statistics/1268547/sales-price-of-existing-single-family-homes-in-california/.
 
-A.
+A.  
 
 ```{r message = FALSE}
 library(tidyverse)
 library(here)
 library(readxl)
-avocados <- read_csv(here("Week 4", "Lab 4", "avocado.csv"))
-cali_housing <- read_xlsx(here("Week 4", "Lab 4", "California Housing Prices.xlsx"),
+avocados <- read_csv(here("data", "avocado.csv"))
+cali_housing <- read_xlsx(here("data", "California Housing Prices.xlsx"),
                           sheet = "Data",
                           skip = 4) |> 
   rename("region" = "...1",
@@ -44,7 +45,7 @@ region_prices_cali$region[region_prices_cali$region == "Los Angeles"] <- "LosAng
 
 ```
 
-B.
+B.  
 
 ```{r}
 #Merging with Avocados
@@ -54,7 +55,7 @@ housing_avocados_cali <- avocados |>
   mutate(March2022 = as.factor(March2022))
 ```
 
-C.
+C.  
 
 ```{r}
 options(scipen = 999)

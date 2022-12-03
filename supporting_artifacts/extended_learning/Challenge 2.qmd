@@ -1,7 +1,9 @@
 ---
 title: "Challenge 2"
 author: "Scott Brydon"
-format: html
+format: 
+  html:
+    self-contained: true
 editor: visual
 execute: 
   echo: false
@@ -10,12 +12,14 @@ execute:
 #### Challenge 2
 
 ```{r setup}
+#| message: false
 library(tidyverse)
 library(here)
 ```
 
 ```{r reading in data}
-survey = read_csv(here("Week 2", "Lab 2", "surveys.csv")
+#| message: false
+survey = read_csv(here("data", "surveys.csv")
          )
 ```
 

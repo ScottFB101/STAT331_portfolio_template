@@ -15,7 +15,7 @@ editor: visual
 #| message: false
 library(tidyverse)
 library(here)
-BlackfootFish <- read_csv(here("Week 7", "Lab 7", "BlackfootFish.csv"))
+BlackfootFish <- read_csv(here("data", "BlackfootFish.csv"))
 ```
 
 #### Task 1
@@ -117,3 +117,17 @@ rescale_column(BlackfootFish, length:weight)
 The redundancy in the rescale function was a result of me assuming that since the minimum function is already defined, that I couldn't replace it with a simpler argument. I had been using the thought process of developing functions to minimize redundancy and knew I couldn't make another minimize function. This now seems obvious, but I hadn't thought at the time to just define the minimum and maximum as objects precalculated in the function. This happens a lot to me in this class, where I'll get so homed in on a specific learning target or way of doing things that I'll overcomplicated my thinking.
 
 **Task 4:** Whenever I think of the simplest type of graph, I gravitate towards the scatterplot. This can be counterintuitive because often the purpose of the visual and the interpretation don't require a scatterplot. That happens to be the case here, where a scatterplot makes the data almost overlap and extremely hard to interpret. If there were slight changes to the data when I rescaled it, it would've been hard to see small movements in the points too. I decided to change to a boxplot because you commented we only want to see the distributions of weight, which would be shown by the quantiles of a boxplot. In general, I need to become better at answering the question in a straightforward manner.
+
+***Feedback Provided:***
+
+*In this class, we use a style guide which recommends the use of an assignment arrow over an `=` sign for object creation.*
+
+*Careful! The code chunk options are specified after a `:` and uses **lowercase** letters -- `false` and `true`. Using capitals or a mix will cause rendering errors. I was unable to render your document due to your option (`#| message = FALSE`) not using `:` and lowercase letters.*
+
+*Wouldn\'t it be nice if there were continuous values for the years? :) What is being plotted on the y-axis?*
+
+*A `,` in `stopifnot()` is the same as an `|`. So, I don\'t see a reason not to use the default argument structure for the function.*
+
+*Great function! I\'d press you to think about the redundancy in your function. Is the same function being called multiple times? If so, how can you remove this redundancy?*
+
+*The only variable I am concerned with is `weight`. I want visualizations that make it as simple as possible to compare the distributions of `weight` before and after scaling!*

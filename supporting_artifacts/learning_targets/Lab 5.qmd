@@ -3,6 +3,7 @@ title: "Lab 5"
 author: "Scott Brydon"
 format: 
   html: 
+    self-contained: true
     theme:
       dark: darkly
     code-fold: true
@@ -14,7 +15,7 @@ editor: visual
 #| message = FALSE
 library(tidyverse)
 library(here)
-survey = read_csv(here("Week 2", "Lab 2", "surveys.csv"))
+survey = read_csv(here("data", "surveys.csv"))
 ```
 
 ## Revisiting Lab 2

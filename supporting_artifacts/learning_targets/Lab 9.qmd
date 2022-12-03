@@ -3,6 +3,7 @@ title: "Lab 9"
 author: "Scott Brydon"
 format: 
   html: 
+    self-contained: true
     theme:
       dark: darkly
     code-fold: true
@@ -14,7 +15,7 @@ editor: visual
 #| message: false
 library(tidyverse)
 library(here)
-StateNames_A <- read_csv(here("Week 9", "Lab 9", "StateNames_A.csv"))
+StateNames_A <- read_csv(here("data", "StateNames_A.csv"))
 ```
 
 #### Summarizing and Visualizing the Number of Allisons

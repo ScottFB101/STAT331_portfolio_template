@@ -3,6 +3,7 @@ title: "Practice Activity 5"
 author: "Scott Brydon"
 format: 
   html: 
+    self-contained: true
     theme:
       dark: darkly
     code-fold: true
@@ -18,7 +19,7 @@ execute:
 library(tidyverse)
 library(lubridate)
 library(here)
-zodiac <- read_csv(here("Week 5", "Practice Activity", "suspect_times.csv"))
+zodiac <- read_csv(here("data", "suspect_times.csv"))
 
 zodiac <- zodiac |> 
   mutate(

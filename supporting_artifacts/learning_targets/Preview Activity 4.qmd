@@ -12,9 +12,10 @@ execute:
 #### Reading in Cereal Data
 
 ```{r}
+#| message: false
 library(tidyverse)
 library(here)
-cereal <- read_csv(here("Week 4", "Preview Activity", "cereal.csv"))
+cereal <- read_csv(here("data", "cereal.csv"))
 ```
 
 #### Creating Cereals_long

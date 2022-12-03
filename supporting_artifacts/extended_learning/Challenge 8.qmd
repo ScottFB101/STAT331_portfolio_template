@@ -3,6 +3,7 @@ title: "Challenge 8"
 author: "Scott Brydon"
 format: 
   html: 
+    self-contained: true
     theme:
       dark: darkly
     code-fold: true

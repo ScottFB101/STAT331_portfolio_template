@@ -20,7 +20,7 @@ execute:
 ```{r message = FALSE}
 library(tidyverse)
 library(here)
-hiphop <- read_csv(here("Week 3", "Lab 3", "hiphop.csv"))
+hiphop <- read_csv(here("data", "hiphop.csv"))
 ```
 
 ```{r}

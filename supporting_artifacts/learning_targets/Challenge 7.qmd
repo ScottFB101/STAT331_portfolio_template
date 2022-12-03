@@ -3,6 +3,7 @@ title: "Challenge 7"
 author: "Scott Brydon"
 format: 
   html: 
+    self-contained: true
     theme:
       dark: darkly
     code-fold: true
@@ -14,7 +15,7 @@ editor: visual
 #| message: false
 library(tidyverse)
 library(here)
-BlackfootFish = read_csv(here("Week 7", "Lab 7", "BlackfootFish.csv"))
+BlackfootFish = read_csv(here("data", "BlackfootFish.csv"))
 ```
 
 #### Part 1

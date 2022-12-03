@@ -1,7 +1,9 @@
 ---
 title: "Practice Activity 9"
 author: "Scott Brydon"
-format: html
+format: 
+  html:
+    self-contained: true
 editor: visual
 ---
 
@@ -12,7 +14,7 @@ editor: visual
 library(tidyverse)
 library(here)
 
-Duck_diet <- read_csv(here("Week 9", "Practice Activity", "mystery_animal.csv"))
+Duck_diet <- read_csv(here("data", "mystery_animal.csv"))
 ```
 
 ```{r}

@@ -3,6 +3,7 @@ title: "Lab 2"
 author: "Scott Brydon"
 format: 
   html: 
+    self-contained: true
     theme:
       dark: darkly
     code-fold: true
@@ -42,7 +43,7 @@ We will be investigating the animal species diversity and weights found within p
 
 ```{r}
 #| message: false
-survey = read_csv(here("Week 2", "Lab 2", "surveys.csv")
+survey = read_csv(here("data", "surveys.csv")
          )
 #Answer to #2
 dim(survey)
@@ -152,3 +153,13 @@ At first, I thought that coord_flip moved the axis labels as well, but after loo
 #2:
 
 Unfortunately, I neglected to consider that I could give my own description of the output of the dim function rather than have to rely solely on code output. This was a major lapse of judgement considering I know how valuable it is to be able to interpret and explain data outside of programming languages. Especially in any type of professional setting where your findings have implications on important business decisions etc. By using the simple output of the dim function plus some descriptive writing, I can finally answer the question without being excessive.
+
+***Feedback Provided:***
+
+*Careful! A professional looking report should not display messages about reading in the data or loading in package. These messages are not useful for the reader and make your document look cluttered.*
+
+*What are the number of rows and the number of columns in the dataframe? The output of `dim()` helps, but I want you to tell me what each number means!*
+
+*You do not need to use the `coord_flip()` function to flip the coordinates of your plot. There is a much simpler way. Can you find it?*
+
+*You did not address the question! Look at your rendered HTML file, outputting a preview of the dataset is very messy! The purpose of these two questions is to find functions which present **only** this information in a tidy and presentable way. The `dim()` function did this, but it output two numbers. Thus, it is your responsibility to report what each of those numbers represents.*

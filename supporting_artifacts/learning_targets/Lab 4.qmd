@@ -3,6 +3,7 @@ title: "Lab 4"
 author: "Scott Brydon"
 format: 
   html: 
+    self-contained: true
     theme:
       dark: darkly
     code-fold: true
@@ -19,7 +20,7 @@ editor: visual
 
 library(tidyverse)
 library(here)
-avocados <- read_csv(here("Week 4", "Lab 4", "avocado.csv"))
+avocados <- read_csv(here("data", "avocado.csv"))
 ```
 
 1\.

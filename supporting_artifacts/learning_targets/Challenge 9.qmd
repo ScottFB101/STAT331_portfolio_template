@@ -3,8 +3,7 @@ title: "Challenge 9"
 author: "Scott Brydon"
 format: 
   html: 
-    theme:
-      dark: darkly
+    self-contained: true
     code-fold: true
     code-block-bg: '#063970'
 editor: visual
@@ -17,7 +16,7 @@ library(knitr)
 library(kableExtra)
 library(DT)
 library(here)
-StateNames_A <- read_csv(here("Week 9", "Lab 9", "StateNames_A.csv"))
+StateNames_A <- read_csv(here("data", "StateNames_A.csv"))
 
 StateNames_A <- StateNames_A |> 
   rename("Sex at Birth" = "Gender") 

@@ -55,3 +55,7 @@ Challenge 4
 Challenge 2
 
 #### Demonstration of Peer Support
+
+Lab 7 Peer Review
+
+Lab 3 Peer Review

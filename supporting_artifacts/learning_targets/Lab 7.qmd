@@ -15,7 +15,7 @@ editor: visual
 #| message: false
 library(tidyverse)
 library(here)
-BlackfootFish <- read_csv(here("Week 7", "Lab 7", "BlackfootFish.csv"))
+BlackfootFish <- read_csv(here("data", "BlackfootFish.csv"))
 ```
 
 #### Task 1
